@@ -16,7 +16,6 @@ namespace Serial_Assistant
 		private long receive_count = 0; //接收字节计数
 		private long send_count = 0;    //发送字节计数
 		private StringBuilder sb = new StringBuilder();    //为了避免在接收处理函数中反复调用，依然声明为一个全局变量
-		private DateTime current_time = new DateTime();    //为了避免在接收处理函数中反复调用，依然声明为一个全局变量
 
 		public class THbuffer     //定义一个检测数据结构体
 		{

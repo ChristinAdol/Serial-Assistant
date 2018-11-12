@@ -35,6 +35,8 @@
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
@@ -58,8 +60,7 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.label11 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.panel5.SuspendLayout();
 			this.panel4.SuspendLayout();
@@ -122,6 +123,7 @@
 			// panel3
 			// 
 			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel3.Controls.Add(this.label13);
 			this.panel3.Controls.Add(this.label12);
 			this.panel3.Controls.Add(this.label11);
 			this.panel3.Controls.Add(this.button3);
@@ -143,6 +145,26 @@
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(214, 407);
 			this.panel3.TabIndex = 0;
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.label12.Location = new System.Drawing.Point(111, 296);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(74, 21);
+			this.label12.TabIndex = 16;
+			this.label12.Text = "湿度：无";
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.label11.Location = new System.Drawing.Point(12, 296);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(74, 21);
+			this.label11.TabIndex = 15;
+			this.label11.Text = "温度：无";
 			// 
 			// button3
 			// 
@@ -408,25 +430,15 @@
 			this.timer1.Enabled = true;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
-			// label11
+			// label13
 			// 
-			this.label11.AutoSize = true;
-			this.label11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.label11.Location = new System.Drawing.Point(12, 296);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(74, 21);
-			this.label11.TabIndex = 15;
-			this.label11.Text = "温度：无";
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.label12.Location = new System.Drawing.Point(111, 296);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(74, 21);
-			this.label12.TabIndex = 16;
-			this.label12.Text = "湿度：无";
+			this.label13.AutoSize = true;
+			this.label13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.label13.Location = new System.Drawing.Point(31, 382);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(154, 21);
+			this.label13.TabIndex = 17;
+			this.label13.Text = "1602班 11号 李晓俊";
 			// 
 			// Form1
 			// 
@@ -436,7 +448,7 @@
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "温湿度串口助手---1602 11号 李晓俊";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel5.ResumeLayout(false);
@@ -484,6 +496,7 @@
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label label13;
 	}
 }
 
