@@ -126,81 +126,14 @@ namespace Serial_Assistant
 		private void button2_Click(object sender, EventArgs e)
 		{
 			textBox1.Text = "";		//清空接收文本框
-			textBox2.Text = "";		//清空发送文本框
+
 			receive_count = 0;		//接收计数清零
 			send_count = 0;			//发送计数
 			label7.Text = "Rx:" + receive_count.ToString() + "Bytes";   //刷新界面
 			label6.Text = "Tx:" + send_count.ToString()    + "Bytes";   //刷新界面
 		}
 
-		private void button3_Click(object sender, EventArgs e)
-		{
-			byte[] temp = new byte[1];
-			try
-			{
-				//首先判断串口是否开启
-				if (serialPort1.IsOpen)
-				{
-					int num = 0;   //获取本次发送字节数
-								   //串口处于开启状态，将发送区文本发送
 
-					//判断发送模式
-					if (radioButton2.Checked)
-					{
-						//以HEX模式发送
-						//首先需要用正则表达式将用户输入字符中的十六进制字符匹配出来
-						string buf = textBox2.Text;
-						string pattern = @"\s";
-						string replacement = "";
-						Regex rgx = new Regex(pattern);
-						string send_data = rgx.Replace(buf, replacement);
-
-						//不发送新行
-						num = (send_data.Length - send_data.Length % 2) / 2;
-						for (int i = 0; i < num; i++)
-						{
-							temp[0] = Convert.ToByte(send_data.Substring(i * 2, 2), 16);
-							serialPort1.Write(temp, 0, 1);  //循环发送
-						}
-						//如果用户输入的字符是奇数，则单独处理
-						if (send_data.Length % 2 != 0)
-						{
-							temp[0] = Convert.ToByte(send_data.Substring(textBox2.Text.Length - 1, 1), 16);
-							serialPort1.Write(temp, 0, 1);
-							num++;
-						}
-					}
-					else
-					{
-						//以ASCII模式发送
-						serialPort1.Write(textBox2.Text);
-						num = textBox2.Text.Length;
-					}
-
-					send_count += num;      //计数变量累加
-					label6.Text = "Tx:" + send_count.ToString() + "Bytes";   //刷新界面
-				}
-			}
-			catch (Exception ex)
-			{
-				serialPort1.Close();
-				//捕获到异常，创建一个新的对象，之前的不可以再用
-				serialPort1 = new System.IO.Ports.SerialPort();
-				//刷新COM口选项
-				comboBox1.Items.Clear();
-				comboBox1.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
-				//响铃并显示异常给用户
-				System.Media.SystemSounds.Beep.Play();
-				button1.Text = "打开串口";
-				button1.BackColor = Color.ForestGreen;
-				MessageBox.Show(ex.Message);
-				comboBox1.Enabled = true;
-				comboBox2.Enabled = true;
-				comboBox3.Enabled = true;
-				comboBox4.Enabled = true;
-				comboBox5.Enabled = true;
-			}
-		}
 
 		//串口接收事件处理
 		private void SerialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
